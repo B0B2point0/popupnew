@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Popup Spawner</title>
+    <script>
+        function createPopup() {
+            const imageUrl = "your-image.jpg"; // Replace this with your local image file name
+            const newWindow = window.open("", "", `width=200,height=200,left=${Math.random() * screen.width},top=${Math.random() * screen.height}`);
+            newWindow.document.write(`<img src="${imageUrl}" alt="Popup Image" style="width:100%; height:100%;">`);
+
+            newWindow.onbeforeunload = function() {
+                createPopup();
+                createPopup();
+            };
+        }
+
+        window.onload = createPopup;
+    </script>
+</head>
+<body>
+</body>
+</html>
